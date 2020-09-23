@@ -1,0 +1,83 @@
+﻿<Window x:Class="Vitruvius.Views.FocusWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Focus Parameters" WindowStartupLocation="CenterScreen" Height="230" Width="300">
+    <TabControl>
+        <TabItem Header="Closest">
+            <StackPanel>
+                <GroupBox>
+                    <GroupBox.Header>Attention Focus Timeout</GroupBox.Header>
+                    <Slider Name="ClosestTimeoutSlider" ValueChanged="TimeoutChanged"
+                            Minimum="1" Maximum="10" IsSnapToTickEnabled="True" TickPlacement="TopLeft" AutoToolTipPlacement="BottomRight" AutoToolTipPrecision="1"></Slider>
+                </GroupBox>
+                <GroupBox>
+                    <GroupBox.Header>Reference Joint</GroupBox.Header>
+                    <ComboBox Name="ClosestReferenceJointComboBox" SelectedIndex="14" SelectionChanged="ReferenceJointChanged">
+                        <ComboBoxItem Content="Head"/>
+                        <ComboBoxItem Content="Left Elbow"/>
+                        <ComboBoxItem Content="Left Foot"/>
+                        <ComboBoxItem Content="Left Hand"/>
+                        <ComboBoxItem Content="Left Hip"/>
+                        <ComboBoxItem Content="Left Knee"/>
+                        <ComboBoxItem Content="Left Shoulder"/>
+                        <ComboBoxItem Content="Neck"/>
+                        <ComboBoxItem Content="Right Elbow"/>
+                        <ComboBoxItem Content="Right Foot"/>
+                        <ComboBoxItem Content="Right Hand"/>
+                        <ComboBoxItem Content="Right Hip"/>
+                        <ComboBoxItem Content="Right Knee"/>
+                        <ComboBoxItem Content="Right Shoulder"/>
+                        <ComboBoxItem Content="Torso"/>
+                    </ComboBox>
+                </GroupBox>
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="Farthest">
+            <StackPanel>
+                <GroupBox>
+                    <GroupBox.Header>Attention Focus Timeout</GroupBox.Header>
+                    <Slider Name="FarthestTimeoutSlider"  ValueChanged="TimeoutChanged"
+                            Minimum="1" Maximum="10" IsSnapToTickEnabled="True" TickPlacement="TopLeft" AutoToolTipPlacement="BottomRight" AutoToolTipPrecision="1"></Slider>
+                </GroupBox>
+                <GroupBox>
+                    <GroupBox.Header>Reference Joint</GroupBox.Header>
+                    <ComboBox Name="FarthestReferenceJointComboBox" SelectedIndex="14" SelectionChanged="ReferenceJointChanged">
+                        <ComboBoxItem Content="Head"/>
+                        <ComboBoxItem Content="Left Elbow"/>
+                        <ComboBoxItem Content="Left Foot"/>
+                        <ComboBoxItem Content="Left Hand"/>
+                        <ComboBoxItem Content="Left Hip"/>
+                        <ComboBoxItem Content="Left Knee"/>
+                        <ComboBoxItem Content="Left Shoulder"/>
+                        <ComboBoxItem Content="Neck"/>
+                        <ComboBoxItem Content="Right Elbow"/>
+                        <ComboBoxItem Content="Right Foot"/>
+                        <ComboBoxItem Content="Right Hand"/>
+                        <ComboBoxItem Content="Right Hip"/>
+                        <ComboBoxItem Content="Right Knee"/>
+                        <ComboBoxItem Content="Right Shoulder"/>
+                        <ComboBoxItem Content="Torso"/>
+                    </ComboBox>
+                </GroupBox>
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="Newest">
+            <StackPanel>
+                <GroupBox>
+                    <GroupBox.Header>Attention Focus Timeout</GroupBox.Header>
+                    <Slider Name="NewestTimeoutSlider"  ValueChanged="TimeoutChanged"
+                            Minimum="1" Maximum="10" IsSnapToTickEnabled="True" TickPlacement="TopLeft" AutoToolTipPlacement="BottomRight" AutoToolTipPrecision="1"></Slider>
+                </GroupBox>
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="Oldest">
+            <StackPanel>
+                <GroupBox>
+                    <GroupBox.Header>Attention Focus Timeout</GroupBox.Header>
+                    <Slider Name="OldestTimeoutSlider" ValueChanged="TimeoutChanged"
+                            Minimum="1" Maximum="10" IsSnapToTickEnabled="True" TickPlacement="TopLeft" AutoToolTipPlacement="BottomRight" AutoToolTipPrecision="1"></Slider>
+                </GroupBox>
+            </StackPanel>
+        </TabItem>
+    </TabControl>
+</Window>

@@ -1,0 +1,85 @@
+﻿<Window x:Class="Vitruvius.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Vitruvius" Height="500" Width="400" WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded" Closing="Window_Closing">
+    <StackPanel>
+        <Menu VerticalAlignment="Top">
+            <MenuItem Header="File">
+                <MenuItem Name="importMenuItem" Header="Import" Click="importMenuItem_Click"/>
+                <MenuItem Name="exportMenuItem" Header="Export" Click="exportMenuItem_Click"/>
+                <Separator/>
+                <MenuItem Name="quitMenuItem" Header="Quit" Click="quitMenuItem_Click"/>
+            </MenuItem>
+            <MenuItem Header="View">
+                <MenuItem Header="Image Source">
+                    <StackPanel>
+                        <RadioButton Name="rgbRadioButton" Content="RGB Camera" IsChecked="True"
+                                     Checked="rgbRadioButton_Checked"/>
+                        <RadioButton Name="depthRadioButton" Content="Depth Sensor"
+                                     Checked="depthRadioButton_Checked"/>
+                        <RadioButton Name="noneRadioButton" Content="None"
+                                     Checked="noneRadioButton_Checked"/>
+                    </StackPanel>
+                </MenuItem>
+                <MenuItem Header="Show">
+                    <MenuItem Name="backgroundMenuItem" Header="Background" IsCheckable="True" IsChecked="True"
+                              Checked="backgroundMenuItem_Checked" Unchecked="backgroundMenuItem_Unchecked">
+                    </MenuItem>
+                    <MenuItem Name="idMenuItem" Header="ID" IsCheckable="True"  IsChecked="True"
+                              Checked="idMenuItem_Checked" Unchecked="idMenuItem_Unchecked">
+                    </MenuItem>
+                    <MenuItem Name="skeletonMenuItem" Header="Skeleton" IsCheckable="True" IsChecked="True"
+                              Checked="skeletonMenuItem_Checked" Unchecked="skeletonMenuItem_Unchecked">
+                    </MenuItem>
+                    <MenuItem Name="stateMenuItem" Header="State" IsCheckable="True" IsChecked="True"
+                              Checked="stateMenuItem_Checked" Unchecked="stateMenuItem_Unchecked">
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Name="mirrorMenuItem" Header="Mirror" IsCheckable="True" IsChecked="True" IsEnabled="False">
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Focus">
+                <MenuItem Header="Algorithm">
+                    <StackPanel>
+                        <RadioButton Content="Oldest" Checked="FocusChanged"/>
+                        <RadioButton Content="Newest" Checked="FocusChanged"/>
+                        <RadioButton Content="Closest" Checked="FocusChanged" IsChecked="True"/>
+                        <RadioButton Content="Farthest" Checked="FocusChanged"/>
+                        <RadioButton Content="None" Checked="FocusChanged"/>
+                    </StackPanel>
+                </MenuItem>
+                <MenuItem Header="Focus Parameters..." Click="OpenFocusWindow"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Gesture">
+                <MenuItem Name="gestureViewSubmenu" Header="View All..." Click="gestureViewSubmenu_Click"/>
+                <MenuItem Name="addSubmenu" Header="Add..." Click="addSubmenu_Click"/>
+                <MenuItem Name="removeSubmenu" Header="Remove..." Click="removeSubmenu_Click"/>
+                <Separator/>
+                <MenuItem Name="gestureModeSubmenu" Header="Mode">
+                    <StackPanel>
+                        <RadioButton Name="onlineRadioButton" Content="Real-time" Checked="onlineRadioButton_Checked" IsChecked="True"/>
+                        <RadioButton Name="offlineRadioButton" Content="From File" Checked="offlineRadioButton_Checked" />
+                    </StackPanel>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Name="gestureRecordSubmenu" Header="Record..." Click="gestureRecordSubmenu_Click"/>
+                <MenuItem Name="gestureDecodeSubmenu" Header="Recognize..." Click="gestureRecognizeSubmenu_Click"/>
+                <MenuItem Name="gestureTrainSubmenu" Header="Train..." Click="gestureTrainSubmenu_Click"/>
+            </MenuItem>
+        </Menu>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Image Name="image" Grid.Row="0"></Image>
+            <GroupBox Header="Output Console" Grid.Row="1">
+                <TextBox Name="outputConsole" IsReadOnly="True" Height="80" FontStyle="Italic" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"></TextBox>
+            </GroupBox>
+            <TextBlock Name="usersLabel" Grid.Row="2" HorizontalAlignment="Left"/>
+            <TextBlock Name="fpsTextBlock" Grid.Row="2" HorizontalAlignment="Right"/>
+        </Grid>
+    </StackPanel>
+</Window>
